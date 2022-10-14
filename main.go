@@ -40,6 +40,7 @@ func connectDB() *gorm.DB {
 	db, err := gorm.Open(mysql.Open(dsn), &gorm.Config{})
 	if err != nil {
 		log.Error(err.Error())
+		return nil
 	}
 
 	return db
