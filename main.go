@@ -48,6 +48,7 @@ func connectDB() *gorm.DB {
 func main() {
 	e := echo.New()
 	dbConn := connectDB()
+	dbConn.AutoMigrate(&User{})
 	e.Use(middleware.Logger())
 
 	e.GET("/users", AllUser(dbConn))
